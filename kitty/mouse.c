@@ -80,7 +80,7 @@ encode_mouse_event_impl(unsigned int x, unsigned int y, int mouse_tracking_proto
     if (mods & GLFW_MOD_CONTROL) cb |= CONTROL_INDICATOR;
     switch(mouse_tracking_protocol) {
         case SGR_PROTOCOL:
-            return snprintf(mouse_event_buf, sizeof(mouse_event_buf), "<%d;%d;%d%s", cb, x, y, action == RELEASE ? "m" : "M");
+            return snprintf(mouse_event_buf, sizeof(mouse_event_buf), "M%d;%d;%d%s", cb, x, y, action == RELEASE ? "m" : "M");
             break;
         case URXVT_PROTOCOL:
             return snprintf(mouse_event_buf, sizeof(mouse_event_buf), "%d;%d;%dM", cb + 32, x, y);
