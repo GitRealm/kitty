@@ -1439,7 +1439,7 @@ screen_report_size(Screen *self, unsigned int which) {
             break;
     }
     if (code) {
-        snprintf(buf, sizeof(buf), "%Su;%u;%ut", code, height, width);
+        snprintf(buf, sizeof(buf), "S%u;%u;%ut", code, height, width);
         write_escape_code_to_child(self, CSI, buf);
     }
 }
